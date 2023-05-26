@@ -1,24 +1,7 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Odin project exercise "Project: Private Events", implementing freshly learned ActiveRecord association features.
 
-Things you may want to cover:
+This application enables it's users to create events with certain date, whick other users can sign up for.
 
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+Exercise link: https://www.theodinproject.com/lessons/ruby-on-rails-private-events
