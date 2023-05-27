@@ -2,15 +2,17 @@
 
 <% @events.each do |event| %>
 <br>
-    <div>
-        <p>Title: <%= event.title %></p>
-        <p>Description: <%= event.description %></p>
-        <p>Date: <%= event.date %></p>
-        <p>Time: <%= event.time %></p>
-        <p>Creator: 
-        <%= link_to controller: "users", action: "show", id: event.creator.id do %> 
-                        <%= event.creator.username %>
-                    <% end %>
-        </p>
-    </div>
+    <%= link_to controller: "events", action: "show", id: event.id do %> 
+        <div class="event-container">
+            <p>Title: <%= event.title %></p>
+            <p>Description: <%= event.description %></p>
+            <p>Date: <%= event.date %></p>
+            <p>Time: <%= event.time %></p>
+            <p>Creator: 
+            <%= link_to controller: "users", action: "show", id: event.creator.id do %> 
+                <%= event.creator.username %>
+            <% end %>
+            </p>
+        </div>
+        <% end %>
 <% end %>
