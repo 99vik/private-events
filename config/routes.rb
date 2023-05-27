@@ -3,6 +3,8 @@ Rails.application.routes.draw do
 
   root "events#index"
 
+  get "/attend_events/", to: "attend_events#add"
+  
   get "/users/:id", to: "users#show"
 
   resources :events

@@ -8,4 +8,11 @@
         <%= @event.creator.username %>
     <% end %>
     </p>
+    <p>People going:</p>
+    <ul>
+        <% @event.attendees.each do |attendee| %>
+            <li><%= attendee.username %></li>
+        <% end %>
+    </ul>
+    <%= link_to "Attend", controller: "attend_events", action: "add" , attendee_id: current_user.id, event_id: @event.id %> 
 </div>
