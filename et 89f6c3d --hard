@@ -1,0 +1,47 @@
+[33mcommit 6f29ef5e667da443c9e43f910107c60e6d61e6fa[m[33m ([m[1;36mHEAD -> [m[1;32mmain[m[33m)[m
+Author: Viktor Miric <viktorm47@gmail.com>
+Date:   Sat May 27 14:41:19 2023 +0200
+
+    Added links on pages, commit before migration
+
+[33mcommit 2ea499145f630d04d999ae94262cfbfc96b68d07[m
+Author: Viktor Miric <viktorm47@gmail.com>
+Date:   Sat May 27 14:03:40 2023 +0200
+
+    Created user profiles with listed events
+
+[33mcommit 2e3e141fd17d00a326508e3e7c10e21664440ec4[m
+Author: Viktor Miric <viktorm47@gmail.com>
+Date:   Sat May 27 13:22:38 2023 +0200
+
+    Enabled event creation,changed event model
+
+[33mcommit f41b9cf3224e2547feb36d6ab03f00b0bc29a87f[m
+Author: Viktor Miric <viktorm47@gmail.com>
+Date:   Sat May 27 12:12:26 2023 +0200
+
+    Added event model with relation to creator(user)
+
+[33mcommit 21d00d3cde70ae721f553843ac4f4c6081f6fe2e[m
+Author: Viktor Miric <viktorm47@gmail.com>
+Date:   Fri May 26 14:22:02 2023 +0200
+
+    Enabled user signup and signin
+
+[33mcommit 598eb0c1ae6c63656742bb659cff7ff09e5b2ede[m
+Author: Viktor Miric <viktorm47@gmail.com>
+Date:   Fri May 26 13:52:26 2023 +0200
+
+    Set up devise user model, migrated models
+
+[33mcommit 752ea02bb553696c68bef4e263349c32631a6ec6[m
+Author: Viktor Miric <viktorm47@gmail.com>
+Date:   Fri May 26 13:17:25 2023 +0200
+
+    Added gems, setup events model, edited README
+
+[33mcommit 07226df8f666c3ad1c40d7a9edee2fb47424404e[m[33m ([m[1;31morigin/main[m[33m)[m
+Author: Viktor Miric <viktorm47@gmail.com>
+Date:   Fri May 26 12:22:40 2023 +0200
+
+    Initial commit
