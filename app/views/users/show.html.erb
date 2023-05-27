@@ -1,14 +1,40 @@
-<h1>profile</h1>
+<% if @user == current_user %>
+    <%= link_to "Edit profile", edit_user_registration_path %>
+<% end %>
 <h1><%= @user.username %></h1>
 <h1>Contact: <%= @user.email %></h1>
 <% if @events.any? %>
+    <p>Users events:</p>
     <% @events.each do |event| %>
-        <br>
-    <div>
-        <p>Title: <%= event.title %></p>
-        <p>Description: <%= event.description %></p>
-        <p>Date: <%= event.date %></p>
-        <p>Time: <%= event.time %></p>
-    </div>
+    <br>
+    <%= link_to controller: "events", action: "show", id: event.id do %> 
+        <div class="event-container">
+            <p>Title: <%= event.title %></p>
+            <p>Description: <%= event.description %></p>
+            <p>Date: <%= event.date %></p>
+            <p>Time: <%= event.time.hour %>:<%= event.time.min %></p>
+            <p>People going: <%= event.attendees.count %></p>
+        </div>
+        <% end %>
+    <% end %>
+<% end %>
+<% if @attended_events.any? %>
+    <p>Attended events:</p>
+    <% @attended_events.each do |event| %>
+    <br>
+    <%= link_to controller: "events", action: "show", id: event.id do %> 
+        <div class="event-container">
+            <p>Title: <%= event.title %></p>
+            <p>Description: <%= event.description %></p>
+            <p>Date: <%= event.date %></p>
+            <p>Time: <%= event.time.hour %>:<%= event.time.min %></p>
+            <p>Creator: 
+            <%= link_to controller: "users", action: "show", id: event.creator.id do %> 
+                <%= event.creator.username %>
+            <% end %>
+            </p>
+            <p>People going: <%= event.attendees.count %></p>
+        </div>
+        <% end %>
     <% end %>
 <% end %>

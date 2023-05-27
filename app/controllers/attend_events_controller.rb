@@ -11,6 +11,12 @@ class AttendEventsController < ApplicationController
     end
     redirect_to root_path
   end
+  
+  def destroy
+    flash.notice = "You were removed from event!"
+    EventAttendee.where(event_id: params[:event_id].to_i, attendee_id: current_user.id.to_i).delete_all
+    redirect_to root_path
+  end
 
   private
 
