@@ -1,21 +1,21 @@
-<div>
+<div class="profile-container">
     <h1><%= @event.title %></h1>
     <div>
         <% if @event.creator_id == current_user.id%>
-            <%= link_to "Edit event", edit_event_path %>
+            <%= link_to "Edit event", edit_event_path, class: "edit-btn" %>
         <% end %>
     </div>
-    <p>Description: <%= @event.description %></p>
+    <p class="description"><%= @event.description %></p>
     <p>Date: <%= @event.date %></p>
     <p>Time: <%= @event.time.hour %>:<%= @event.time.min %></p>
-    <p>Creator:
+    <p class="creator-link">Creator:
     <%= link_to controller: "users", action: "show", id: @event.creator.id do %> 
         <%= @event.creator.username %>
     <% end %>
     </p>
     <p>People going: <%= @event.attendees.count %></p>
     <p>List of people who are going:</p>
-    <ul>
+    <ul class="attendee-list">
         <% @event.attendees.each do |attendee| %>
             <%= link_to controller: "users", action: "show", id: attendee.id do %> 
                 <li><%= attendee.username %></li>
@@ -24,7 +24,9 @@
     </ul>
     <% if user_signed_in? %>
         <% if @event.attendee_ids.include?(current_user.id) %>
-            <%= link_to "Remove yourself from event", controller: "attend_events", action: "destroy", event_id: @event.id %>         
+            <div class="delete-btn">
+                <%= link_to "Remove yourself from event", controller: "attend_events", action: "destroy", event_id: @event.id %>
+            </div>
         <% else %>
             <%= link_to "Attend", controller: "attend_events", action: "add" , attendee_id: current_user.id, event_id: @event.id %> 
         <% end %>

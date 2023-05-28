@@ -1,24 +1,4 @@
 <h1>EVENTS</h1>
-<!--
-<div class="events-container">
-    <% @events.each do |event| %>
-        <%= link_to controller: "events", action: "show", id: event.id, class: "event-container" do %>
-            <div class="event-container" >
-                <p class="title"><%= event.title %></p>
-                <p>Date: <%= event.date %></p>
-                <p>Time: <%= event.time.hour %>:<%= event.time.min %></p>
-                <p>Creator:
-                <%= link_to controller: "users", action: "show", id: event.creator.id do %>
-                    <%= event.creator.username %>
-                <% end %>
-                </p>
-                <p>People going: <%= event.attendees.count %></p>
-            <% end %>
-        </div>
-    <% end %>
-</div>
--->
-
 <div class="events-container">
     <% @events.each do |event| %>
         <div class="event-container" >
