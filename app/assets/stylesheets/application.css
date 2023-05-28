@@ -17,6 +17,8 @@
  * {
     margin: 0;
     box-sizing: border-box;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    font-size: 16px;
  }
 
  a {
@@ -26,6 +28,143 @@
  a, a:visited, a:hover, a:active {
     color: inherit;
   }
- .event-container {
-    background-color: lightskyblue;
+  
+  :root {
+     --theme-color: rgb(255, 125, 125);
+   }
+   
+   .navbar {
+      color: var(--theme-color);
+      background-color: white;
+      box-shadow: 0px 1px 3px 1px rgb(255, 125, 125, 0.6);
+      height: 8vh;
+      
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0px 80px;
+      z-index: 3;
+      position: fixed;
+      top: 0;
+      width: 100%;
+}
+
+.navbar > div {
+   display: flex;
+   gap: 40px;
+}
+
+.navbar > div:last-child > div {
+   font-size: 18px;
+   margin-right: 30px;
+}
+
+.navbar a {
+   font-size: 18px;
+   font-weight: 500;
+}
+
+.navbar a:hover {
+   color: rgb(188, 88, 88);
+   transition: 0.3s;
+}
+
+.footer {
+   background-color: var(--theme-color);
+   height: 8vh;
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   color: white;
+   margin-top: 30px;
+ }
+
+ .content-container {
+    min-height: 84vh;
+    margin-top: 20px;
+    padding: 0px 80px;
+   }
+   
+   .content-container h1 {
+      text-align: center;
+      font-size: 40px;
+      font-weight: 200;
+      color: var(--theme-color);
+   }
+   
+   .events-container {
+      margin-top: 30px;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      row-gap: 60px;
+      column-gap: 40px;
+   }
+
+   .event-container {
+      padding: 10px 40px;
+      background-color: rgb(249, 249, 249);
+
+      border-radius: 20px;
+      border: solid rgb(255, 125, 125, 0.4) 1px;
+      box-shadow: 1px 1px 2px 2px rgb(255, 125, 125, 0.2);
+      position: relative;
+      z-index: 1;
+      color: rgb(76, 76, 76);
+
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+   }
+
+   .event-container:hover {
+      background-color: rgb(243, 237, 237);
+      box-shadow: 1px 1px 6px 2px rgb(255, 125, 125, 0.4);
+      transition: 0.4s;
+   }
+
+   .event-container > a {
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+   }
+
+   .flash-messages {
+      margin-top: 9vh;
+      height: 20px;
+      margin-bottom: -20px;
+      font-weight: bold;
+      text-align: center;
+   }
+   
+   .flash-messages .notice {
+   color: green;
+   font-size: 14px;
+ }
+
+ .flash-messages .alert {
+   color: red;
+   font-size: 14px;
+ }
+
+ .creator-link {
+   position: relative;
+   z-index: 2;
+   color: rgb(142, 59, 59);
+   font-size: 18px;
+ }
+
+ .creator-link:hover {
+   color: rgb(137, 79, 79);
+   text-decoration: underline;
+ }
+
+ p.title {
+   color: var(--theme-color);
+   font-size: 18px;
+   font-weight: bolder;
+   text-align: center;
+   margin-bottom: 10px;
  }

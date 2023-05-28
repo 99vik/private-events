@@ -1,5 +1,10 @@
 <div>
     <h1><%= @event.title %></h1>
+    <div>
+        <% if @event.creator_id == current_user.id%>
+            <%= link_to "Edit event", edit_event_path %>
+        <% end %>
+    </div>
     <p>Description: <%= @event.description %></p>
     <p>Date: <%= @event.date %></p>
     <p>Time: <%= @event.time.hour %>:<%= @event.time.min %></p>
@@ -8,7 +13,8 @@
         <%= @event.creator.username %>
     <% end %>
     </p>
-    <p>People going:</p>
+    <p>People going: <%= @event.attendees.count %></p>
+    <p>List of people who are going:</p>
     <ul>
         <% @event.attendees.each do |attendee| %>
             <%= link_to controller: "users", action: "show", id: attendee.id do %> 
@@ -16,9 +22,11 @@
             <% end %>
         <% end %>
     </ul>
-    <% if @event.attendee_ids.include?(current_user.id) %>
-        <%= link_to "Remove yourself from event", controller: "attend_events", action: "destroy", event_id: @event.id %>         
-    <% else %>
-        <%= link_to "Attend", controller: "attend_events", action: "add" , attendee_id: current_user.id, event_id: @event.id %> 
+    <% if user_signed_in? %>
+        <% if @event.attendee_ids.include?(current_user.id) %>
+            <%= link_to "Remove yourself from event", controller: "attend_events", action: "destroy", event_id: @event.id %>         
+        <% else %>
+            <%= link_to "Attend", controller: "attend_events", action: "add" , attendee_id: current_user.id, event_id: @event.id %> 
+        <% end %>
     <% end %>
 </div>

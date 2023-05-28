@@ -1,4 +1,4 @@
-<h1>Create new event</h1>
+<h1>Edit event</h1>
 <%= form_with model: @event do |form| %>
     <% if @event.errors.any? %>
         <ul>
@@ -24,5 +24,9 @@
         <%= form.label :time %>
         <%= form.time_field :time %>
     </div>
-    <%= form.submit "Create event" %>
+    <%= form.submit "Edit event" %>
+    <%= link_to "Delete event", event_path(@event), data: {
+                    turbo_method: :delete,
+                    turbo_confirm: "Are you sure?"
+                  } %>
 <% end %>

@@ -1,4 +1,6 @@
 class AttendEventsController < ApplicationController
+  before_action :authenticate_user!
+
   def add    
     @attend = EventAttendee.new(attend_params)
 
