@@ -1,8 +1,10 @@
 <div class="profile-container">
     <h1><%= @event.title %></h1>
     <div>
+        <% if user_signed_in?%>
         <% if @event.creator_id == current_user.id%>
             <%= link_to "Edit event", edit_event_path, class: "edit-btn" %>
+        <% end %>
         <% end %>
     </div>
     <p class="description"><%= @event.description %></p>
@@ -28,7 +30,9 @@
                 <%= link_to "Remove yourself from event", controller: "attend_events", action: "destroy", event_id: @event.id %>
             </div>
         <% else %>
-            <%= link_to "Attend", controller: "attend_events", action: "add" , attendee_id: current_user.id, event_id: @event.id %> 
+            <div class="save-btn">
+                <%= link_to "Attend", controller: "attend_events", action: "add" , attendee_id: current_user.id, event_id: @event.id %> 
+            </div>
         <% end %>
     <% end %>
 </div>

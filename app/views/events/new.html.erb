@@ -1,7 +1,7 @@
 <h1>Create new event</h1>
 <%= form_with model: @event do |form| %>
     <% if @event.errors.any? %>
-        <ul>
+        <ul >
             <% @event.errors.full_messages.each do |msg| %>
                 <li><%= msg %></li>
             <% end %>
@@ -9,20 +9,20 @@
     <% end %>
 
     <div>
-        <%= form.label :title %>
+        <%= form.label :title %> <br>
         <%= form.text_field :title, autofocus: true %>
     </div>
     <div>
-        <%= form.label :description %>
+        <%= form.label :description %> <br>
         <%= form.text_area :description %>
     </div>
     <div>
-        <%= form.label :date %>
+        <%= form.label :date %> <br>
         <%= form.date_field :date %>
     </div>
     <div>
-        <%= form.label :time %>
+        <%= form.label :time %> <br>
         <%= form.time_field :time %>
     </div>
-    <%= form.submit "Create event" %>
+    <%= form.submit "Create event", class: "save-btn" %>
 <% end %>
